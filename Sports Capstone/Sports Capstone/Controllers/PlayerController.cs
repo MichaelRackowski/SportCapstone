@@ -9,11 +9,19 @@ namespace Sports_Capstone.Controllers
 {
     public class PlayerController : Controller
     {
-        ApplicationDbContext context;
+       public ApplicationDbContext context;
+
+        public PlayerController()
+        {
+            context = new ApplicationDbContext();
+           
+        }
+          
         // GET: Player
         public ActionResult Index()
         {
-            return View();
+            var players = context.Players.ToList();
+            return View(players);
         }
 
         // GET: Player/Details/5
@@ -35,29 +43,45 @@ namespace Sports_Capstone.Controllers
         {
             try
             {
-               context.Players.Add(player)
-
+                context.Players.Add(player);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(player);
             }
         }
 
         // GET: Player/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            try
+            {
+                var PlayerDb = context.Players.Where(p => p.Id == id).FirstOrDefault();
+                return View(PlayerDb);
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+           
         }
 
         // POST: Player/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Player player)
         {
             try
             {
-                // TODO: Add update logic here
+                var PlayerDb = context.Players.Where(p => p.Id == id).FirstOrDefault();
+                PlayerDb.FirstName = player.FirstName;
+                PlayerDb.LastName = player.LastName;
+                PlayerDb.Age = player.Age;
+                PlayerDb.City = player.City;
+                PlayerDb.State = player.State;
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -88,5 +112,6 @@ namespace Sports_Capstone.Controllers
                 return View();
             }
         }
+        
     }
 }
