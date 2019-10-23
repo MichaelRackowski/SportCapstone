@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -26,5 +27,26 @@ namespace Sports_Capstone.Models
         [Display(Name = "State")]
         public string State { get; set; }
 
+        public ICollection<Sport> SportOptions { get; set; }
+
+        
+        
+        
+        
+        
+        
+        
+        //[Display(Name = "Sport")]
+        //public Sport SelctedSport { get; set; }
+
+        //[ForeignKey("Sport")]
+        //[Display(Name)]
+
     }
+    //public enum Sport
+    //{
+    //    Basketball,
+    //    Soccer,
+    //    Golf
+    //}
 }

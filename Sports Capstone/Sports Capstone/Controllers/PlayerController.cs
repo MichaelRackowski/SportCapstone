@@ -45,7 +45,7 @@ namespace Sports_Capstone.Controllers
             {
                 context.Players.Add(player);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             catch
             {
@@ -111,7 +111,11 @@ namespace Sports_Capstone.Controllers
             {
                 return View();
             }
+           
         }
-        
+        //public ActionResult ChooseSport()
+        //{
+        //    var sport = 
+        //}
     }
 }
