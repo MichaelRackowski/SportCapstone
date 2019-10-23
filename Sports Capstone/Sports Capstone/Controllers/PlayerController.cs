@@ -1,4 +1,5 @@
-﻿using Sports_Capstone.Models;
+﻿using Microsoft.AspNet.Identity;
+using Sports_Capstone.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,13 @@ namespace Sports_Capstone.Controllers
         }
 
         // GET: Player/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            var applicationId = User.Identity.GetUserId();
+            Player player = context.Players.FirstOrDefault(p => p.ApplicationId == applicationId);
+
+
+            return View(player);
         }
 
         // GET: Player/Create
@@ -41,20 +46,19 @@ namespace Sports_Capstone.Controllers
         [HttpPost]
         public ActionResult Create(Player player )
         {
-            try
+            if (ModelState.IsValid)
             {
+                player.ApplicationId = User.Identity.GetUserId();
                 context.Players.Add(player);
                 context.SaveChanges();
                 return RedirectToAction("Details");
-            }
-            catch
-            {
+            }           
                 return View(player);
-            }
+            
         }
 
         // GET: Player/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
 
             try
@@ -71,7 +75,7 @@ namespace Sports_Capstone.Controllers
 
         // POST: Player/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Player player)
+        public ActionResult Edit(int? id, Player player)
         {
             try
             {

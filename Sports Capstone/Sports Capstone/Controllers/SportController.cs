@@ -1,4 +1,5 @@
-﻿using Sports_Capstone.Models;
+﻿using Microsoft.AspNet.Identity;
+using Sports_Capstone.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Sports_Capstone.Controllers
             }
 
         // GET: Sport/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             return View();
         }
@@ -57,6 +58,10 @@ namespace Sports_Capstone.Controllers
             try
             {
                 /// get current user and assign them to CurrentPlayer
+                var ApplicationId = User.Identity.GetUserId();
+                Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+                sport.PlayerId = player.Id;
+
                 context.Sports.Add(sport);
                 context.SaveChanges();
 
