@@ -38,16 +38,21 @@ namespace Sports_Capstone.Controllers
             return View();
             }
 
-        // GET: Sport/Details/5
+        //GET: Sport/Details/5
         public ActionResult Details(int? id)
         {
-            return View();
+            Sport sport = context.Sports.FirstOrDefault(s => s.Id == id);
+            
+            return View(sport);
         }
 
         // GET: Sport/Create
         public ActionResult Create()
         {
             Sport sport = new Sport();
+            sport.TypeOfPlay = " Casual or Competetive ".ToLower();
+            sport.SportName = "Soccer,Basketball,Golf".ToLower();
+            sport.SkillLevel = "Beginner,Average,Expert".ToLower();
             return View(sport);
         }
 
@@ -65,7 +70,7 @@ namespace Sports_Capstone.Controllers
                 context.Sports.Add(sport);
                 context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details",new { id = sport.Id });
             }
             catch
             {

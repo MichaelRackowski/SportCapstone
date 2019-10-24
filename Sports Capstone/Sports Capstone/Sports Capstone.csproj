@@ -275,6 +275,7 @@
     <Content Include="Views\Sport\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Sport\Create.cshtml" />
+    <Content Include="Views\Sport\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
