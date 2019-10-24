@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201910241635351_AddedPlayingEventModel.Designer.cs">
       <DependentUpon>201910241635351_AddedPlayingEventModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910241916343_AddedToThePlayingEventModel.cs" />
+    <Compile Include="Migrations\201910241916343_AddedToThePlayingEventModel.Designer.cs">
+      <DependentUpon>201910241916343_AddedToThePlayingEventModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910241635351_AddedPlayingEventModel.resx">
       <DependentUpon>201910241635351_AddedPlayingEventModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241916343_AddedToThePlayingEventModel.resx">
+      <DependentUpon>201910241916343_AddedToThePlayingEventModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

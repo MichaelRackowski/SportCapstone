@@ -28,7 +28,7 @@ namespace Sports_Capstone.Controllers
         // GET: PlayingEvent/Details/5
         public ActionResult Details(int? id)
         {
-            PlayingEvent playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
+            var playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
 
             return View(playingEvent);
         }
@@ -54,6 +54,9 @@ namespace Sports_Capstone.Controllers
                 playingEvent.SkillLevel = sport.SkillLevel;
                 playingEvent.SportName = sport.SportName;
                 playingEvent.TypeOfPlay = sport.TypeOfPlay;
+
+                context.PlayingEvents.Add(playingEvent);
+                context.SaveChanges();
                 return RedirectToAction("Details", new { id = playingEvent.Id });
             }
             catch

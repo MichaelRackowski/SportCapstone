@@ -16,17 +16,19 @@ namespace Sports_Capstone.Models
         public string Location { get; set; }
 
         [Display(Name = " Start Time of Event")]
-        public DateTime? StartTime { get; set; }
+        public int? StartTime { get; set; }
 
         [Display(Name = "End Time of Event")]
-        public DateTime? EndTime { get; set; }
+        public int? EndTime { get; set; }
+        [Display(Name = "Number of players allowed")]
+        public int PlayersAllowed { get; set; }
 
         [ForeignKey("Players")]
         [Display(Name = "Players")]
         public int PlayersId { get; set; }
-        public Player Players { get; set; }
+        public Player Player { get; set; }
 
-        public ICollection<Player> Player { get; set; }
+        public ICollection<Player> Players { get; set; }
 
         [Display(Name = "Sport")]
         public string SportName { get; set; }
