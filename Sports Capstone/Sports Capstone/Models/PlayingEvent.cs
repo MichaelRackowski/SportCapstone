@@ -28,6 +28,17 @@ namespace Sports_Capstone.Models
 
         public ICollection<Player> Player { get; set; }
 
+        [Display(Name = "Sport")]
+        public string SportName { get; set; }
+
+        [Display(Name = "Type of Play")]
+        public string TypeOfPlay { get; set; }
+
+        [Display(Name = "Skil Level")]
+        public string SkillLevel { get; set; }
+
+
+
         //this is for the count of current players out of total number of players
 
 

@@ -110,3 +110,4 @@ C:\Users\jrack\Desktop\Projects\Sport Capstone\SportCapstone\Sports Capstone\Spo
 C:\Users\jrack\Desktop\Projects\Sport Capstone\SportCapstone\Sports Capstone\Sports Capstone\obj\Debug\Sports_Capstone.Migrations.AddedSportsModel.resources
 C:\Users\jrack\Desktop\Projects\Sport Capstone\SportCapstone\Sports Capstone\Sports Capstone\obj\Debug\Sports_Capstone.Migrations.Newmigration.resources
 C:\Users\jrack\Desktop\Projects\Sport Capstone\SportCapstone\Sports Capstone\Sports Capstone\obj\Debug\Sports_Capstone.Migrations.ChangedPlayerModel.resources
+C:\Users\jrack\Desktop\Projects\Sport Capstone\SportCapstone\Sports Capstone\Sports Capstone\obj\Debug\Sports_Capstone.Migrations.AddedPlayingEventModel.resources
