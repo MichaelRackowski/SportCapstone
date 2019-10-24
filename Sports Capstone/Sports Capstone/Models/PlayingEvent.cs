@@ -23,6 +23,9 @@ namespace Sports_Capstone.Models
         [Display(Name = "Number of players allowed")]
         public int PlayersAllowed { get; set; }
 
+        [Display(Name = "Current Players")]
+        public int CurrentPlayers { get; set; }
+
         [ForeignKey("Players")]
         [Display(Name = "Players")]
         public int PlayersId { get; set; }
@@ -41,7 +44,7 @@ namespace Sports_Capstone.Models
 
 
 
-        //this is for the count of current players out of total number of players
+       
 
 
     }

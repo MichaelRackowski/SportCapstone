@@ -10,7 +10,6 @@ namespace Sports_Capstone.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Sports_Capstone.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Sports_Capstone.Models.ApplicationDbContext context)

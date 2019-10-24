@@ -30,6 +30,7 @@ namespace Sports_Capstone.Controllers
         {
             var playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
 
+
             return View(playingEvent);
         }
 
@@ -54,9 +55,11 @@ namespace Sports_Capstone.Controllers
                 playingEvent.SkillLevel = sport.SkillLevel;
                 playingEvent.SportName = sport.SportName;
                 playingEvent.TypeOfPlay = sport.TypeOfPlay;
-
+                playingEvent.CurrentPlayers ++;
+                
                 context.PlayingEvents.Add(playingEvent);
                 context.SaveChanges();
+
                 return RedirectToAction("Details", new { id = playingEvent.Id });
             }
             catch

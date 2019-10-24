@@ -66,8 +66,31 @@
             @Html.DisplayFor(model => model.SkillLevel)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentPlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayersAllowed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayersAllowed)
+        </dd>
+
+
+
     </dl>
 </div>
+
+<table>
+
+@*Add index type table here to display current players*@
+</table>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
     @Html.ActionLink("Back to List", "Index")
