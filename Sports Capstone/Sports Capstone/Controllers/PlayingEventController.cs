@@ -95,19 +95,19 @@ namespace Sports_Capstone.Controllers
             return View("Index", playingEvents);                  
         }
 
-        public ActionResult PlayerSearch(string SearchString)
-        {
-            var ApplicationId = User.Identity.GetUserId();
-            Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
-            Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
-            List<Player> players = context.Players.Where(p => p.SportOptions == SearchString).ToList();
-            player.City = sport.City;
-            players = players.Where(p => p.City == ).ToList();
-            players = players.Where(p=> p.)
+        //public ActionResult PlayerSearch(string SearchString)
+        //{
+        //    var ApplicationId = User.Identity.GetUserId();
+        //    Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+        //    Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
+        //    List<Player> players = context.Players.Where(p => p. == SearchString).ToList();
+        //    player.City = sport.City;
+        //    players = players.Where(p => p.City == ).ToList();
+        //    players = players.Where(p => p.)
 
-            return View("Index",)
-        }
-                      
+        //    return View("Index")
+        //}
+
         public ActionResult Join(int? id)
         {
             var ApplicationId = User.Identity.GetUserId();
@@ -125,9 +125,20 @@ namespace Sports_Capstone.Controllers
                 context.SaveChanges();
                 return View("Join");
             }
-
-
         }
+
+        public ActionResult GoogleApi(int? id)
+        {
+            var ApplicationId = User.Identity.GetUserId();
+            Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+            Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
+            PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == id).FirstOrDefault();
+            var location = playingEvent.Location;
+        https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=
+        }
+
+      
+            
 
         // GET: PlayingEvent/Edit/5
         public ActionResult Edit(int id)
