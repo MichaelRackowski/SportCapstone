@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Sports_Capstone.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -134,7 +137,19 @@ namespace Sports_Capstone.Controllers
             Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
             PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == id).FirstOrDefault();
             var location = playingEvent.Location;
-        https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=
+            var requestUrl = "https://maps.googleapis.com/maps/api/geocode/location+CA&key=Apikey";
+            var result = new WebClient().DownloadString(requestUrl);
+            var geocode = JsonConvert.DeserializeObject(result);
+            var jo = JObject.Parse(result);
+
+            var lat = jo["results"][0]["geometry"]["Location"]["lat"];
+            var lng = jo["results"][0]["geometry"]["location"]["lng"];
+
+            Console.WriteLine(lat);
+            Console.WriteLine(lng);
+            Console.ReadLine();
+
+            return View("Details");
         }
 
       
