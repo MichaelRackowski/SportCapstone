@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessageBoardController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\PlayingEventController.cs" />
     <Compile Include="Controllers\SportController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MessageBoard.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayingEvent.cs" />
     <Compile Include="Models\Sport.cs" />
@@ -260,9 +262,13 @@
     <Content Include="Views\Sport\Details.cshtml" />
     <Content Include="Views\PlayingEvent\Create.cshtml" />
     <Content Include="Views\PlayingEvent\Details.cshtml" />
+    <Content Include="Views\PlayingEvent\JoinFailed.cshtml" />
+    <Content Include="Views\PlayingEvent\Join.cshtml" />
+    <Content Include="Views\PlayingEvent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MessageBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

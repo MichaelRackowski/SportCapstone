@@ -27,6 +27,8 @@ namespace Sports_Capstone.Models
         [Display(Name = "State")]
         public string State { get; set; }
 
+
+        [NotMapped]
         public ICollection<Sport> SportOptions { get; set; }
 
         [ForeignKey("ApplicationUser")]
