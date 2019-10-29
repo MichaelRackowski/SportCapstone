@@ -7,6 +7,6 @@ namespace Sports_Capstone.Models
 {
     public static class ApiKey
     {
-        public static string  Apikey = ;
+        public static string  Apikey = 1234;
     }
 }
