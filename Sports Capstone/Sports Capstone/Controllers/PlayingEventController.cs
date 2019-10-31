@@ -48,15 +48,13 @@ namespace Sports_Capstone.Controllers
 
         // POST: PlayingEvent/Create
         [HttpPost]
-        public ActionResult Create(PlayingEvent playingEvent)
+        public  ActionResult Create(PlayingEvent playingEvent)
         {
             try
             {
                 // TODO: Add insert logic here
 
                 Player currentPlayer = new Player();
-
-
                 var ApplicationId = User.Identity.GetUserId();
                 Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
                 Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
@@ -64,8 +62,8 @@ namespace Sports_Capstone.Controllers
                 playingEvent.SportName = sport.SportName;
                 playingEvent.TypeOfPlay = sport.TypeOfPlay;
                 playingEvent.CurrentPlayers++;
-                
-                
+
+
                 //Player players = context.Events.Where(p => p.EventId == playingEvent.Id).FirstOrDefault();
 
                 //Player Events = context.Events.Where(e => e.EventId);
@@ -75,19 +73,20 @@ namespace Sports_Capstone.Controllers
 
                 //}
 
-                Player currentnumPlayers = context.Players.Where(p => p.Id == playingEvent.Id).FirstOrDefault();
+                //Player currentnumPlayers = context.Players.Where(p => p.Id == playingEvent.Id).FirstOrDefault();
                 /* get all players that have current playingeventId*/
 
-                context.PlayingEvents.Add(playingEvent);
+                context.PlayingEvents.Add(playingEvent); 
                 context.SaveChanges();
 
                 GoogleApi(playingEvent.Id);
-
-                
-
                 context.SaveChanges();
-              
-  
+
+
+
+
+
+
 
                 return RedirectToAction("Details", new { id = playingEvent.Id });
             }

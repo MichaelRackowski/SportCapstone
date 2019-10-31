@@ -1,9 +1,11 @@
-﻿using Sports_Capstone.Models;
+﻿using Microsoft.AspNet.Identity;
+using Sports_Capstone.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace Sports_Capstone.Controllers
 {
@@ -26,34 +28,52 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard
         public ActionResult Index()
         {
-            return View();
+            var messages = context.MessageBoards.ToList();
+            return View(messages);
         }
 
         // GET: MessageBoard/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            var messages = context.MessageBoards.Where(m => m.Id == id).FirstOrDefault();
+            return View(messages);
         }
 
         // GET: MessageBoard/Create
         public ActionResult Create()
         {
-            return View();
+            MessageBoard message = new MessageBoard();
+
+            return View(message);
         }
 
         // POST: MessageBoard/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MessageBoard message)
         {
             try
             {
                 // TODO: Add insert logic here
+                var ApplicationId = User.Identity.GetUserId();
+                Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+                Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
+                PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.PlayersId == p.Id).FirstOrDefault();
+                var messages = context.MessageBoards.Where(m => m.PlayingEventId == playingEvent.Id).FirstOrDefault();
+                var FirstName = context.MessageBoards.Where(f => f.FirstName == player.FirstName).FirstOrDefault();
+                var LastName = context.MessageBoards.Where(l => l.LastName == player.LastName).FirstOrDefault();
+               
+                context.MessageBoards.Add(messages);
+                context.SaveChanges();
 
-                return RedirectToAction("Index");
+
+                //message.SkillLevel = sport.SkillLevel;
+                //message.SportName = sport.SportName;
+                //message.TypeOfPlay = sport.TypeOfPlay;
+                return RedirectToAction("Index",messages);
             }
             catch
             {
-                return View();
+                return View(message);
             }
         }
 

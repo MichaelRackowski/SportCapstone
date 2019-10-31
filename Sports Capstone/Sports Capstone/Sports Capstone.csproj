@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.Designer.cs">
       <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910311932307_ChangedMessageBoardModel.cs" />
+    <Compile Include="Migrations\201910311932307_ChangedMessageBoardModel.Designer.cs">
+      <DependentUpon>201910311932307_ChangedMessageBoardModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="ApiKey.cs" />
@@ -275,10 +279,11 @@
     <Content Include="Views\PlayingEvent\JoinFailed.cshtml" />
     <Content Include="Views\PlayingEvent\Join.cshtml" />
     <Content Include="Views\PlayingEvent\Index.cshtml" />
+    <Content Include="Views\MessageBoard\Create.cshtml" />
+    <Content Include="Views\MessageBoard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\MessageBoard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -305,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.resx">
       <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311932307_ChangedMessageBoardModel.resx">
+      <DependentUpon>201910311932307_ChangedMessageBoardModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
