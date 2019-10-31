@@ -185,8 +185,18 @@
     <Compile Include="Migrations\201910242129003_AddedToThePlayingEventModel.Designer.cs">
       <DependentUpon>201910242129003_AddedToThePlayingEventModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910291946464_updatedMyPlayingEventsModel.cs" />
+    <Compile Include="Migrations\201910291946464_updatedMyPlayingEventsModel.Designer.cs">
+      <DependentUpon>201910291946464_updatedMyPlayingEventsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.cs" />
+    <Compile Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.Designer.cs">
+      <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ApiKey.cs" />
+    <Compile Include="Models\GoogleMapJson.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MessageBoard.cs" />
@@ -289,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910242129003_AddedToThePlayingEventModel.resx">
       <DependentUpon>201910242129003_AddedToThePlayingEventModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910291946464_updatedMyPlayingEventsModel.resx">
+      <DependentUpon>201910291946464_updatedMyPlayingEventsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.resx">
+      <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

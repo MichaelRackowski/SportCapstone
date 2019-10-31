@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using static Sports_Capstone.Models.GoogleMapJson;
 
 namespace Sports_Capstone.Controllers
 {
@@ -34,7 +35,7 @@ namespace Sports_Capstone.Controllers
         {
             var playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
 
-
+            ViewBag.thing = ApiKey.thing;
             return View(playingEvent);
         }
 
@@ -53,6 +54,9 @@ namespace Sports_Capstone.Controllers
             {
                 // TODO: Add insert logic here
 
+                Player currentPlayer = new Player();
+
+
                 var ApplicationId = User.Identity.GetUserId();
                 Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
                 Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
@@ -60,9 +64,30 @@ namespace Sports_Capstone.Controllers
                 playingEvent.SportName = sport.SportName;
                 playingEvent.TypeOfPlay = sport.TypeOfPlay;
                 playingEvent.CurrentPlayers++;
+                
+                
+                //Player players = context.Events.Where(p => p.EventId == playingEvent.Id).FirstOrDefault();
+
+                //Player Events = context.Events.Where(e => e.EventId);
+
+                //foreach (var player. in playingEvent.Id)
+                //{
+
+                //}
+
+                Player currentnumPlayers = context.Players.Where(p => p.Id == playingEvent.Id).FirstOrDefault();
+                /* get all players that have current playingeventId*/
 
                 context.PlayingEvents.Add(playingEvent);
                 context.SaveChanges();
+
+                GoogleApi(playingEvent.Id);
+
+                
+
+                context.SaveChanges();
+              
+  
 
                 return RedirectToAction("Details", new { id = playingEvent.Id });
             }
@@ -130,26 +155,37 @@ namespace Sports_Capstone.Controllers
             }
         }
 
-        public ActionResult GoogleApi(int? id)
+        public void GoogleApi(int? id)
         {
             var ApplicationId = User.Identity.GetUserId();
             Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
             Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
             PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == id).FirstOrDefault();
             var location = playingEvent.Location;
-            var requestUrl = "https://maps.googleapis.com/maps/api/geocode/location+CA&key=Apikey";
-            var result = new WebClient().DownloadString(requestUrl);
-            var geocode = JsonConvert.DeserializeObject(result);
-            var jo = JObject.Parse(result);
+            var address = playingEvent.Address;
+            var requestUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key="+ ApiKey.Apikey;
+            var newUrl = requestUrl.Replace(" ", "+");
+            var result = new WebClient().DownloadString(newUrl);
+            Rootobject root = JsonConvert.DeserializeObject<Rootobject>(result);
+            var jsonObject = JObject.Parse(result);
 
-            var lat = jo["results"][0]["geometry"]["Location"]["lat"];
-            var lng = jo["results"][0]["geometry"]["location"]["lng"];
+            foreach (var item in root.results)
+            {
+                playingEvent.lat = item.geometry.location.lat;
+                playingEvent.lng = item.geometry.location.lng;
+            }
 
-            Console.WriteLine(lat);
-            Console.WriteLine(lng);
-            Console.ReadLine();
+            //playingEvent.lat = lat.ToObject<double>();
+            //playingEvent.lng = lng.ToObject<double>();
 
-            return View("Details");
+            //"https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "CA&key=" + ApiKey.Apikey;
+
+            //Console.WriteLine(lat);
+            //Console.WriteLine(lng);
+            context.SaveChanges();
+            //Console.ReadLine();
+
+            //return View("Details",playingEvent);
         }
 
       

@@ -25,6 +25,8 @@ namespace Sports_Capstone.Models
         public DbSet<Player> Players { get; set; }
         public DbSet<Sport> Sports { get; set; }
         public DbSet<PlayingEvent> PlayingEvents { get; set; }
+        public DbSet<MessageBoard> MessageBoards { get; set; }
+        //public DbSet<Player> Events { get; set; }
 
         //public DbSet<Players> Players { get; set; }
 

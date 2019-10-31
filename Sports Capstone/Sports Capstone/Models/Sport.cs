@@ -21,10 +21,10 @@ namespace Sports_Capstone.Models
         [Display(Name = "Skil Level")]
         public string SkillLevel { get; set; }
 
-        [ForeignKey("Player")]
-        [Display(Name ="Player")]
-        public int PlayerId { get; set; }
-         public Player Player { get; set; }
+        //[ForeignKey("Player")]
+        //[Display(Name ="Player")]
+        //public int PlayerId { get; set; }
+        // public Player Player { get; set; }
 
 
     }

@@ -42,6 +42,15 @@ namespace Sports_Capstone.Models
         [Display(Name = "Skil Level")]
         public string SkillLevel { get; set; }
 
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        public double lat { get; set; }
+
+        public double lng { get; set; }
+
+
+   
 
 
        

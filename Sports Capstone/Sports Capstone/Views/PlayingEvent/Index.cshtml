@@ -49,8 +49,8 @@
                     @Html.DisplayNameFor(model => model.CurrentPlayers)
                 </th>
                 @*<th>
-                        @Html.DisplayNameFor(model => model.PlayersId)
-                    </th>*@
+            @Html.DisplayNameFor(model => model.PlayersId)
+        </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.SportName)
                 </th>
@@ -60,49 +60,55 @@
                 <th>
                     @Html.DisplayNameFor(model => model.SkillLevel)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Location)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EndTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PlayersAllowed)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CurrentPlayers)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.PlayersId)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SportName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TypeOfPlay)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SkillLevel)
-                    </td>
-                    <td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayersAllowed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentPlayers)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.PlayersId)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SportName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfPlay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
 
-                        @Html.ActionLink("Join Event", "Join", new { id = item.Id })
+                @Html.ActionLink("Join Event", "Join", new { id = item.Id })
 
 
-                        @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-                    </td>
-                </tr>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Details", "Details")
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
             }
 
         </table>

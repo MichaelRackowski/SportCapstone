@@ -13,11 +13,31 @@ namespace Sports_Capstone.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Messages")]
-        [Display(Name = "Messages")]
-        public int MessageId { get; set; }
-        public Message Message { get; set; }
+        [Display(Name ="Messages")]
+        public string Messages { get; set; }
 
-        public ICollection<Message> Messages { get; set; }
+        [Display(Name = "Location")]
+        public string Location { get; set; }
+
+        [Display(Name = "Sport")]
+        public string SportName { get; set; }
+
+        [Display(Name = "Type of Play")]
+        public string TypeOfPlay { get; set; }
+
+        [Display(Name = "Skil Level")]
+        public string SkillLevel { get; set; }
+
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
+
     }
 }
