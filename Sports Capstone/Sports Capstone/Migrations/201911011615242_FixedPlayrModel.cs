@@ -3,10 +3,43 @@ namespace Sports_Capstone.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class FixedPlayrModel : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.MessageBoards",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Messages = c.String(),
+                        PlayingEventId = c.Int(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.PlayingEvents", t => t.PlayingEventId)
+                .Index(t => t.PlayingEventId);
+            
+            CreateTable(
+                "dbo.PlayingEvents",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Location = c.String(),
+                        StartTime = c.Int(),
+                        EndTime = c.Int(),
+                        PlayersAllowed = c.Int(nullable: false),
+                        CurrentPlayers = c.Int(nullable: false),
+                        SportName = c.String(),
+                        TypeOfPlay = c.String(),
+                        SkillLevel = c.String(),
+                        Address = c.String(),
+                        lat = c.Double(nullable: false),
+                        lng = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Players",
                 c => new
@@ -18,13 +51,13 @@ namespace Sports_Capstone.Migrations
                         City = c.String(),
                         State = c.String(),
                         ApplicationId = c.String(maxLength: 128),
-                        PlayingEvent_Id = c.Int(),
+                        PlayingEventId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationId)
-                .ForeignKey("dbo.PlayingEvents", t => t.PlayingEvent_Id)
+                .ForeignKey("dbo.PlayingEvents", t => t.PlayingEventId)
                 .Index(t => t.ApplicationId)
-                .Index(t => t.PlayingEvent_Id);
+                .Index(t => t.PlayingEventId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -85,6 +118,16 @@ namespace Sports_Capstone.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
                 "dbo.Sports",
                 c => new
                     {
@@ -98,65 +141,37 @@ namespace Sports_Capstone.Migrations
                 .ForeignKey("dbo.Players", t => t.PlayerId, cascadeDelete: true)
                 .Index(t => t.PlayerId);
             
-            CreateTable(
-                "dbo.PlayingEvents",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Location = c.String(),
-                        StartTime = c.Int(),
-                        EndTime = c.Int(),
-                        PlayersAllowed = c.Int(nullable: false),
-                        PlayersId = c.Int(nullable: false),
-                        SportName = c.String(),
-                        TypeOfPlay = c.String(),
-                        SkillLevel = c.String(),
-                        Player_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Players", t => t.Player_Id)
-                .Index(t => t.Player_Id);
-            
-            CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Players", "PlayingEvent_Id", "dbo.PlayingEvents");
-            DropForeignKey("dbo.PlayingEvents", "Player_Id", "dbo.Players");
             DropForeignKey("dbo.Sports", "PlayerId", "dbo.Players");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.MessageBoards", "PlayingEventId", "dbo.PlayingEvents");
+            DropForeignKey("dbo.Players", "PlayingEventId", "dbo.PlayingEvents");
             DropForeignKey("dbo.Players", "ApplicationId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.PlayingEvents", new[] { "Player_Id" });
             DropIndex("dbo.Sports", new[] { "PlayerId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Players", new[] { "PlayingEvent_Id" });
+            DropIndex("dbo.Players", new[] { "PlayingEventId" });
             DropIndex("dbo.Players", new[] { "ApplicationId" });
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.PlayingEvents");
+            DropIndex("dbo.MessageBoards", new[] { "PlayingEventId" });
             DropTable("dbo.Sports");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Players");
+            DropTable("dbo.PlayingEvents");
+            DropTable("dbo.MessageBoards");
         }
     }
 }

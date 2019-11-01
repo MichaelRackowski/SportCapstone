@@ -7,13 +7,13 @@ namespace Sports_Capstone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ChangedMessageBoardModel : IMigrationMetadata
+    public sealed partial class FixedPlayrModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedMessageBoardModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedPlayrModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910311932307_ChangedMessageBoardModel"; }
+            get { return "201911011615242_FixedPlayrModel"; }
         }
         
         string IMigrationMetadata.Source

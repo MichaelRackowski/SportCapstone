@@ -10,7 +10,7 @@ namespace Sports_Capstone.Models
     public class PlayingEvent
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Display(Name = "Location")]
         public string Location { get; set; }
@@ -26,10 +26,10 @@ namespace Sports_Capstone.Models
         [Display(Name = "Current Players")]
         public int CurrentPlayers { get; set; }
 
-        [ForeignKey("Players")]
-        [Display(Name = "Players")]
-        public int PlayersId { get; set; }
-        public Player Player { get; set; }
+        //[ForeignKey("Players")]
+        //[Display(Name = "Players")]
+        //public int PlayersId { get; set; }
+        //public Player Player { get; set; }
 
         public ICollection<Player> Players { get; set; }
 

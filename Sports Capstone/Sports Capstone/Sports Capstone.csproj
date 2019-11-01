@@ -177,25 +177,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910242050389_Init.cs" />
-    <Compile Include="Migrations\201910242050389_Init.Designer.cs">
-      <DependentUpon>201910242050389_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910242129003_AddedToThePlayingEventModel.cs" />
-    <Compile Include="Migrations\201910242129003_AddedToThePlayingEventModel.Designer.cs">
-      <DependentUpon>201910242129003_AddedToThePlayingEventModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291946464_updatedMyPlayingEventsModel.cs" />
-    <Compile Include="Migrations\201910291946464_updatedMyPlayingEventsModel.Designer.cs">
-      <DependentUpon>201910291946464_updatedMyPlayingEventsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.cs" />
-    <Compile Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.Designer.cs">
-      <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910311932307_ChangedMessageBoardModel.cs" />
-    <Compile Include="Migrations\201910311932307_ChangedMessageBoardModel.Designer.cs">
-      <DependentUpon>201910311932307_ChangedMessageBoardModel.cs</DependentUpon>
+    <Compile Include="Migrations\201911011615242_FixedPlayrModel.cs" />
+    <Compile Include="Migrations\201911011615242_FixedPlayrModel.Designer.cs">
+      <DependentUpon>201911011615242_FixedPlayrModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -299,20 +283,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910242050389_Init.resx">
-      <DependentUpon>201910242050389_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910242129003_AddedToThePlayingEventModel.resx">
-      <DependentUpon>201910242129003_AddedToThePlayingEventModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291946464_updatedMyPlayingEventsModel.resx">
-      <DependentUpon>201910291946464_updatedMyPlayingEventsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910310109178_DeletedNotMappedFromLatandLong.resx">
-      <DependentUpon>201910310109178_DeletedNotMappedFromLatandLong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910311932307_ChangedMessageBoardModel.resx">
-      <DependentUpon>201910311932307_ChangedMessageBoardModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911011615242_FixedPlayrModel.resx">
+      <DependentUpon>201911011615242_FixedPlayrModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

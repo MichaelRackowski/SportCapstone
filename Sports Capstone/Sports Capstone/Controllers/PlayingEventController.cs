@@ -33,7 +33,15 @@ namespace Sports_Capstone.Controllers
         // GET: PlayingEvent/Details/5
         public ActionResult Details(int? id)
         {
+            var ApplicationId = User.Identity.GetUserId();
+            Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
             var playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
+            player.PlayingEventId = playingEvent.Id;
+            context.SaveChanges();
+            var players = context.Players.Where(p => p.PlayingEventId == playingEvent.Id).ToList();
+            playingEvent.Players = players;
+            context.SaveChanges();
+
 
             ViewBag.thing = ApiKey.thing;
             return View(playingEvent);
@@ -63,6 +71,15 @@ namespace Sports_Capstone.Controllers
                 playingEvent.TypeOfPlay = sport.TypeOfPlay;
                 playingEvent.CurrentPlayers++;
 
+                context.PlayingEvents.Add(playingEvent);
+                context.SaveChanges();
+
+                player.PlayingEventId = playingEvent.Id;
+                context.SaveChanges();
+                var players = context.Players.Where(p => p.PlayingEventId == playingEvent.Id).ToList();
+                playingEvent.Players = players;
+                context.SaveChanges();
+              
 
                 //Player players = context.Events.Where(p => p.EventId == playingEvent.Id).FirstOrDefault();
 
@@ -76,8 +93,7 @@ namespace Sports_Capstone.Controllers
                 //Player currentnumPlayers = context.Players.Where(p => p.Id == playingEvent.Id).FirstOrDefault();
                 /* get all players that have current playingeventId*/
 
-                context.PlayingEvents.Add(playingEvent); 
-                context.SaveChanges();
+              
 
                 GoogleApi(playingEvent.Id);
                 context.SaveChanges();

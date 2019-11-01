@@ -13,7 +13,7 @@ namespace Sports_Capstone.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name ="Messages")]
+        [Display(Name = "Messages")]
         public string Messages { get; set; }
 
         //[Display(Name = "Location")]
@@ -33,7 +33,7 @@ namespace Sports_Capstone.Models
 
             [ForeignKey("PlayingEvent")]
             //[Display(Name ="PlayingEvent")]
-            public int? PlayingEventId { get; set; }
+        public int? PlayingEventId { get; set; }
         public PlayingEvent PlayingEvent { get; set; }
 
         [Display(Name = "First Name")]

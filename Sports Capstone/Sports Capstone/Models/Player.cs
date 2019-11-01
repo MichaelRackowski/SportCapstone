@@ -35,6 +35,10 @@ namespace Sports_Capstone.Models
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+        [ForeignKey("PlayingEvent")]
+        public int? PlayingEventId { get; set; }
+        public PlayingEvent PlayingEvent { get; set; }
+
         //[ForeignKey("Sport")]
         //public int? SportId { get; set; }
         //public Sport Sport { get; set; }
