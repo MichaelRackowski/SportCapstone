@@ -65,6 +65,7 @@ namespace Sports_Capstone.Controllers
                 Player currentPlayer = new Player();
                 var ApplicationId = User.Identity.GetUserId();
                 Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+               
                 Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
                 playingEvent.SkillLevel = sport.SkillLevel;
                 playingEvent.SportName = sport.SportName;
@@ -73,36 +74,16 @@ namespace Sports_Capstone.Controllers
 
                 context.PlayingEvents.Add(playingEvent);
                 context.SaveChanges();
+              
 
                 player.PlayingEventId = playingEvent.Id;
                 context.SaveChanges();
                 var players = context.Players.Where(p => p.PlayingEventId == playingEvent.Id).ToList();
                 playingEvent.Players = players;
                 context.SaveChanges();
-              
-
-                //Player players = context.Events.Where(p => p.EventId == playingEvent.Id).FirstOrDefault();
-
-                //Player Events = context.Events.Where(e => e.EventId);
-
-                //foreach (var player. in playingEvent.Id)
-                //{
-
-                //}
-
-                //Player currentnumPlayers = context.Players.Where(p => p.Id == playingEvent.Id).FirstOrDefault();
-                /* get all players that have current playingeventId*/
-
-              
-
+                                      
                 GoogleApi(playingEvent.Id);
                 context.SaveChanges();
-
-
-
-
-
-
 
                 return RedirectToAction("Details", new { id = playingEvent.Id });
             }

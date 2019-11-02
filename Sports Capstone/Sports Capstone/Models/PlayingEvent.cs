@@ -27,7 +27,7 @@ namespace Sports_Capstone.Models
         public int CurrentPlayers { get; set; }
 
         //[ForeignKey("Players")]
-        //[Display(Name = "Players")]
+        ////[Display(Name = "Players")]
         //public int PlayersId { get; set; }
         //public Player Player { get; set; }
 

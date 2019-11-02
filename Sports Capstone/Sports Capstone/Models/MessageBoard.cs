@@ -16,33 +16,19 @@ namespace Sports_Capstone.Models
         [Display(Name = "Messages")]
         public string Messages { get; set; }
 
-        //[Display(Name = "Location")]
-        //public string Location { get; set; }
+        [Display(Name = "Review")]
+        public string Review { get; set; }
 
-        //[Display(Name = "Sport")]
-        //public string SportName { get; set; }
+        [Display(Name = "Rating")]
+        public int? Rating { get; set; }
 
-        //[Display(Name = "Type of Play")]
-        //public string TypeOfPlay { get; set; }
-
-        //[Display(Name = "Skil Level")]
-        //public string SkillLevel { get; set; }
-
-        //[Display(Name = "Address")]
-        //public string Address { get; set; }
-
-            [ForeignKey("PlayingEvent")]
-            //[Display(Name ="PlayingEvent")]
+       [ForeignKey("PlayingEvent")]
         public int? PlayingEventId { get; set; }
         public PlayingEvent PlayingEvent { get; set; }
 
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-
-
+        [ForeignKey("Player")]
+        public int? PlayersId { get; set; }
+        public Player Player { get; set; }
+        
     }
 }

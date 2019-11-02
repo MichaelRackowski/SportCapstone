@@ -181,6 +181,18 @@
     <Compile Include="Migrations\201911011615242_FixedPlayrModel.Designer.cs">
       <DependentUpon>201911011615242_FixedPlayrModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911012123158_AddedToMEssageBoardClass.cs" />
+    <Compile Include="Migrations\201911012123158_AddedToMEssageBoardClass.Designer.cs">
+      <DependentUpon>201911012123158_AddedToMEssageBoardClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911020102316_CleanedUpMessageBoardClass.cs" />
+    <Compile Include="Migrations\201911020102316_CleanedUpMessageBoardClass.Designer.cs">
+      <DependentUpon>201911020102316_CleanedUpMessageBoardClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911020104398_AddedGoTheMessageClass.cs" />
+    <Compile Include="Migrations\201911020104398_AddedGoTheMessageClass.Designer.cs">
+      <DependentUpon>201911020104398_AddedGoTheMessageClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="ApiKey.cs" />
@@ -285,6 +297,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911011615242_FixedPlayrModel.resx">
       <DependentUpon>201911011615242_FixedPlayrModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911012123158_AddedToMEssageBoardClass.resx">
+      <DependentUpon>201911012123158_AddedToMEssageBoardClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911020102316_CleanedUpMessageBoardClass.resx">
+      <DependentUpon>201911020102316_CleanedUpMessageBoardClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911020104398_AddedGoTheMessageClass.resx">
+      <DependentUpon>201911020104398_AddedGoTheMessageClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

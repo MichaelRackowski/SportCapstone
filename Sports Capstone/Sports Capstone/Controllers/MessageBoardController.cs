@@ -28,15 +28,8 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard
         public ActionResult Index()
         {
-            var messages = context.MessageBoards.ToList();
-
-            var ApplicationId = User.Identity.GetUserId();
-            Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
-            Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
-            //PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.PlayersId == p.Id).FirstOrDefault();
-            //var messages = context.MessageBoards.Where(m => m.PlayingEventId == playingEvent.Id).ToList();
-
-            return View(/*messages*/);
+           
+            return View();
         }
 
         // GET: MessageBoard/Details/5
@@ -49,6 +42,7 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard/Create
         public ActionResult Create()
         {
+
             MessageBoard message = new MessageBoard();
 
             return View(message);
@@ -63,20 +57,18 @@ namespace Sports_Capstone.Controllers
                 // TODO: Add insert logic here
                 var ApplicationId = User.Identity.GetUserId();
                 Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
-                Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
-                //PlayingEvent playingEvent = context.PlayingEvents.Where(p => p. == p.Id).FirstOrDefault();
-                //var messages = context.MessageBoards.Where(m => m.PlayingEventId == playingEvent.Id).FirstOrDefault();
-                //var FirstName = context.MessageBoards.Where(f => f.FirstName == player.FirstName).FirstOrDefault();
-                //var LastName = context.MessageBoards.Where(l => l.LastName == player.LastName).FirstOrDefault();
-               
-              /*  context.MessageBoards.Add(messages)*/;
+                message.PlayingEventId = player.playingevent.Id;
+
+                context.MessageBoards.Add(message);
                 context.SaveChanges();
+                
+               
+             
+               
 
 
-                //message.SkillLevel = sport.SkillLevel;
-                //message.SportName = sport.SportName;
-                //message.TypeOfPlay = sport.TypeOfPlay;
-                return RedirectToAction("Index"/*,messages*/);
+                
+                return RedirectToAction("Index",message);
             }
             catch
             {
