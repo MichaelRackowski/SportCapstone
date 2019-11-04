@@ -28,8 +28,9 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard
         public ActionResult Index()
         {
-           
-            return View();
+            var message = context.MessageBoards.ToList();
+      
+            return View(message);
         }
 
         // GET: MessageBoard/Details/5
@@ -57,16 +58,10 @@ namespace Sports_Capstone.Controllers
                 // TODO: Add insert logic here
                 var ApplicationId = User.Identity.GetUserId();
                 Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
-                message.PlayingEventId = player.playingevent.Id;
+                message.PlayingEventId = player.PlayingEventId;
 
                 context.MessageBoards.Add(message);
                 context.SaveChanges();
-                
-               
-             
-               
-
-
                 
                 return RedirectToAction("Index",message);
             }

@@ -136,8 +136,8 @@ namespace Sports_Capstone.Controllers
         {
             var ApplicationId = User.Identity.GetUserId();
             Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
-            Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
-            PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == id).FirstOrDefault();
+            //PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == id).FirstOrDefault();
+            var playingEvent = context.PlayingEvents.FirstOrDefault((p => p.Id == id));
 
             if (playingEvent.CurrentPlayers == playingEvent.PlayersAllowed)
             {
@@ -147,7 +147,9 @@ namespace Sports_Capstone.Controllers
             {
                 playingEvent.CurrentPlayers++;
                 context.SaveChanges();
-                return View("Join");
+                player.PlayingEventId = playingEvent.Id;
+                context.SaveChanges();
+                return RedirectToAction("Details", new { id = playingEvent.Id });
             }
         }
 

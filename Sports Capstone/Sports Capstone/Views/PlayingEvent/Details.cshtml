@@ -3,11 +3,39 @@
 @{
     ViewBag.Title = "Details";
 }
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="PlayingEvent/Details/StyleSheet1.css" >
+    </head>
+    <body>*@
+<style>
+   
+    .dl-horizontal {
+        height: 90px;
+        width: 50%;
+        text-align: center;
+        padding-top: 10px;
+        color: blueviolet;
+        font-size: 18px;
+    }
+</style>
+<style>
+    .table {
+        color:orangered;
+        text-align:center;
+    }
+</style>
 
-<h2>Details</h2>
+
+
+
+
+
+@*<h2>Details</h2>*@
 
 <div>
-    <h4>PlayingEvent</h4>
+    <h4>PlayingEvent Details</h4>
     <hr />
     <dl class="dl-horizontal">
         @*<dt>
@@ -25,7 +53,7 @@
         <dd>
             @Html.DisplayFor(model => model.Location)
         </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.StartTime)
         </dt>
@@ -91,6 +119,14 @@
         </dd>
     </dl>
 </div>
+
+<br>
+<br>
+<br>
+<br/>
+
+
+
 <div>
     <table class="table">
         <tr>
@@ -101,20 +137,20 @@
         </tr>
         @foreach (var item in Model.Players)
         {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
 
-        <td>
-            @Html.ActionLink("Message", "Create", "MessageBoard")
-        </td>
-    </tr>
+                <td>
+                    @Html.ActionLink("Message", "Create", "MessageBoard")
+                </td>
+            </tr>
         }
-   </table>
+    </table>
 
 </div>
 
@@ -144,10 +180,10 @@
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Back to List", "Index")*@
 
 
-    @Html.ActionLink("View Players in your playing event", "Index", "MessageBoard")
+    @Html.ActionLink("View Messages", "Index", "MessageBoard")
 
 </p>
 
@@ -170,3 +206,6 @@
 
     }
 </script>
+@*</body>
+</html>*@
+

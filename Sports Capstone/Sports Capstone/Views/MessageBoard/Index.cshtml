@@ -3,17 +3,25 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+    <style>
+        .table {
+            height: 15px;
+            font-size: 20px;
+            width: 100%;
+            color: midnightblue;
+        }
+    </style>
+   
+<h2>All Messages</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.PlayingEvent.Location)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Messages)
         </th>
@@ -28,9 +36,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PlayingEvent.Location)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Messages)
         </td>
@@ -41,9 +49,9 @@
             @Html.DisplayFor(modelItem => item.Review)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }

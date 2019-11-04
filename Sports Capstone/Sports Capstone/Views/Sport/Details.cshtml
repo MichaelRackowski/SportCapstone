@@ -4,13 +4,21 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>*@
+<style>
 
+    .dl-horizontal {
+        height: 140px;
+        width: 20%;
+        color: lightseagreen;
+        font-size: 22px;
+    }
+</style>
 <div>
-    <h4>Sport</h4>
+    <h4>Sport Details</h4>
     <hr />
     <dl class="dl-horizontal">
-   
+
         <dt>
             @Html.DisplayNameFor(model => model.SportName)
         </dt>

@@ -1,13 +1,22 @@
 ﻿@model IEnumerable<Sports_Capstone.Models.PlayingEvent>
 
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <style>
+        .table {
+            height: 15px;
+            font-size: 16px;
+            width: 100%;
+            color: violet;
+        }
+    </style>
+<h2>All PlayingEvents</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Event", "Create")
 
     @using (Html.BeginForm("Search", "PlayingEvent"))
     {
@@ -18,97 +27,97 @@
 }
 
     @*@using (Html.BeginForm("PlayerSearch", "PlayingEvent"))
-    {
-        <p>
-            PlayerSearch: @Html.TextBox("SearchString") <br />
-            <input type="submit" value="Filter" />
-        </p>
-    }*@
+        {
+            <p>
+                PlayerSearch: @Html.TextBox("SearchString") <br />
+                <input type="submit" value="Filter" />
+            </p>
+        }*@
 
-        @*<form asp-controller="PlayingEvent" asp-action="Search" method="get">
-                <p>
-                    Search: <input type="text" name="SearchString">
-                    <input type="submit" value="Filter"  />
-                </p>
-            </form>*@
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Location)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EndTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PlayersAllowed)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CurrentPlayers)
-                </th>
-                @*<th>
-            @Html.DisplayNameFor(model => model.PlayersId)
-        </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.SportName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TypeOfPlay)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SkillLevel)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+    @*<form asp-controller="PlayingEvent" asp-action="Search" method="get">
+            <p>
+                Search: <input type="text" name="SearchString">
+                <input type="submit" value="Filter"  />
+            </p>
+        </form>*@
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlayersAllowed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentPlayers)
-            </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.PlayersId)
-        </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.SportName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOfPlay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SkillLevel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-
-                @Html.ActionLink("Join Event", "Join", new { id = item.Id })
-
-
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
-                @Html.ActionLink("Details", "Details")
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayersAllowed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentPlayers)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.PlayersId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SportName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPlay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
         </tr>
-            }
 
-        </table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayersAllowed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentPlayers)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.PlayersId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfPlay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkillLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Join Event", "Join", new { id = item.Id })
+
+
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                    @*@Html.ActionLink("Details", "Details")*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>

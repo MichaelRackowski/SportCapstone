@@ -450,7 +450,7 @@ namespace Sports_Capstone.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Create", "Player");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
