@@ -107,7 +107,7 @@ namespace Sports_Capstone.Controllers
         }
 
         public ActionResult Search(string SearchString)
-        {
+       {
             var ApplicationId = User.Identity.GetUserId();
             Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
             Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
