@@ -3405,7 +3405,7 @@ input[type="button"].btn-block {
 }
 
 .collapse:not(.show) {
-    display: none;
+    display: block !important;
 }
 
 .collapsing {
@@ -4947,7 +4947,7 @@ input[type="button"].btn-block {
         flex-wrap: nowrap;
     }
 
-    .navbar-expand .navbar-collapse {
+    .navbar-expand .navbar-collapse/*.collapse:not(.show)*/ {
         display: -webkit-box !important;
         display: -ms-flexbox !important;
         display: flex !important;
