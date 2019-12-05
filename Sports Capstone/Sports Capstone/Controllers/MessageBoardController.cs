@@ -28,7 +28,9 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard
         public ActionResult Index()
         {
+
             var message = context.MessageBoards.ToList();
+
       
             return View(message);
         }
