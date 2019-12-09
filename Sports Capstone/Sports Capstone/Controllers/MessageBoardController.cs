@@ -28,11 +28,20 @@ namespace Sports_Capstone.Controllers
         // GET: MessageBoard
         public ActionResult Index()
         {
+            try
+            {
+                //var ApplicationId = User.Identity.GetUserId();
+                //Player player = context.Players.Where(p => p.ApplicationId == ApplicationId).FirstOrDefault();
+                //Sport sport = context.Sports.Where(s => s.PlayerId == player.Id).FirstOrDefault();
+                //PlayingEvent playingEvent = context.PlayingEvents.Where(p => p.Id == playingEvent.)
+                var message = context.MessageBoards.ToList();
+                return View(message);
+            }
+            catch
+            {
+                return View();
+            }
 
-            var message = context.MessageBoards.ToList();
-
-      
-            return View(message);
         }
 
         // GET: MessageBoard/Details/5
@@ -65,7 +74,7 @@ namespace Sports_Capstone.Controllers
                 context.MessageBoards.Add(message);
                 context.SaveChanges();
                 
-                return RedirectToAction("Index",message);
+                return RedirectToAction("Details",new { id = message.Id});
             }
             catch
             {

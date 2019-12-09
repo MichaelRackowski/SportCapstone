@@ -29,8 +29,6 @@ namespace Sports_Capstone.Controllers
 
             }
 
-
-
             // GET: Sport
             public ActionResult Index()
             {

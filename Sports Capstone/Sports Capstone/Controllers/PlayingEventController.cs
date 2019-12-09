@@ -101,6 +101,8 @@ namespace Sports_Capstone.Controllers
             var playingevent = context.PlayingEvents.Where(p => p.SkillLevel == sport.SkillLevel);
             playingevent.Where(p => p.SportName == sport.SportName);
             playingevent.Where(p => p.TypeOfPlay == sport.TypeOfPlay).ToList();
+            //player.PlayingEventId = playingEvent.Id;
+            //context.SaveChanges();
 
             return RedirectToAction("Index");
 

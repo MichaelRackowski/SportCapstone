@@ -279,6 +279,7 @@
     <Content Include="Views\PlayingEvent\Index.cshtml" />
     <Content Include="Views\MessageBoard\Create.cshtml" />
     <Content Include="Views\MessageBoard\Index.cshtml" />
+    <Content Include="Views\MessageBoard\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
